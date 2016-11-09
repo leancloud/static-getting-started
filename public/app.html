@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>LeanCloud 官方客户端</title>
+
+    <meta name="apple-itunes-app" content="app-id=854896336">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <style>
+      html,body{min-height:100%}body{background-color:#989898;background:linear-gradient(rgba(59,61,64,0.5), rgba(59,61,64,0.5)),url(58-usersthink-stock-image-web.jpg) no-repeat center center;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;color:white;font-size:18px;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}a{transition:all .3s}.container{max-width:980px}.main{position:relative;min-height:100%;padding-top:70px;padding-bottom:60px}.footer{padding-bottom:50px}.marketing{text-align:center}.app-meta{margin-bottom:20px;font-size:32px}.app-icon{display:block;margin:0 auto 10px;border-radius:15px;width:92px}.marketing-desc{margin:0 auto 20px;max-width:450px;white-space:pre-wrap;font-weight:500}.download-buttons{margin-bottom:20px}.download-btn{margin-right:20px;margin-bottom:20px;border:none;background-color:#0191FF;color:#fff;background-color:#0191FF;color:white}.download-btn:focus,.download-btn:hover{background-color:#00579a;color:#fff;background-color:#00579a;color:white}.social{text-align:center}.social-links{padding-left:0;margin-left:-5px;list-style:none}.social-links li{display:inline-block;margin:12px}.social-links a{color:white}.social-links a:focus,.social-links a:hover{color:#b3b3b3}.device{margin:auto}@media (min-width: 768px){.marketing{text-align:left}.app-icon{display:inline}.marketing-desc{text-align:left}}.device{position:relative;background-size:cover}.device .app-screenshot{position:absolute;width:240px;height:auto}.device.iphone-se-silver-vertical{width:288px;height:608px;background-image:url(images/iphone-se-silver-vertical.png)}.device.iphone-se-silver-vertical .app-screenshot{top:91px;left:25px;width:240px}.device.iphone-se-space-gray-vertical{width:288px;height:608px;background-image:url(images/iphone-se-space-gray-vertical.png)}.device.iphone-se-space-gray-vertical .app-screenshot{top:91px;left:25px;width:240px}.device.ipod-touch-blue-vertical{width:291px;height:614px;background-image:url(images/ipod-touch-blue-vertical.png)}.device.ipod-touch-blue-vertical .app-screenshot{top:87px;left:23px;width:246px}
+
+      body {
+        color: #2c97e8;
+        background: #e6f6ff;
+        overflow: hidden;
+        transition: color .4s ease,background .4s ease,border-color .4s ease,box-shadow .4s ease,opacity .4s ease,-webkit-perspective 2s ease;
+        transition: color .4s ease,background .4s ease,border-color .4s ease,box-shadow .4s ease,opacity .4s ease,perspective 2s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main" role="main">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="marketing">
+              <div class="app-meta">
+                <img class="app-icon" style="min-width: 92px;" height="auto" />
+                <span class="app-name">LeanCloud 官方客户端</span>
+              </div>
+              <h2 class="marketing-header">为开发加速</h2>
+              <p class="marketing-desc">LeanCloud 是加速应用开发的一站式解决方案，专注于为应用开发者提供一流的工具、平台和服务。自 2013 年 9 月发布以来，已经吸引了数万应用和开发者加入。</p>
+              <p class="marketing-desc">我们提供 数据存储 、实时消息和推送、统计分析 服务，全面涵盖应用开发的需求；全面支持 iOS、Android、web 等多个平台。我们努力帮助开发者摆脱繁重的后端开发负担，最大限度地缩短开发周期和加快迭代速度，在激烈的市场竞争中胜出。</p>
+              <p class="marketing-desc">使用 LeanCloud 客户端，您可以随时随地查看 App 在平台上的各项数据，包括新增用户、活跃用户、累计用户等关键指标，也可以看到最近一周用户增长曲线等趋势分析结果等等，并可以进行多种设置操作。</p>
+              <div class="download-buttons">
+                <a class="download-btn btn btn-lg" href="https://itunes.apple.com/app/id854896336?mt=8">App Store</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="device iphone-se-silver-vertical">
+              <img class="app-screenshot" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src='/scripts/jquery.min.js'></script>
+    <script>
+      $(function() {
+        var API_URL = 'https://itunes.apple.com/lookup?id=854896336&callback=?';
+        $.getJSON(API_URL, function(res) {
+          if (res.results && res.results.length) {
+            console.info('App info successfully loaded from Apple');
+            var appInfo = res.results[0];
+            // App Icon
+            var $appIcon = $('.app-icon');
+            if ( $appIcon && !$appIcon.attr('src') && appInfo.artworkUrl512 ) {
+              $appIcon.attr('src', appInfo.artworkUrl512);
+            }
+            // App Screenshot
+            var $appScreenshot = $('.app-screenshot');
+            if ( $appScreenshot && !$appScreenshot.attr('src') && appInfo.screenshotUrls && appInfo.screenshotUrls.length ) {
+              $appScreenshot.attr('src', appInfo.screenshotUrls[0]);
+            }
+          } else {
+            console.warn('Unable to load app info from Apple');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

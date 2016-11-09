@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>LeanEngine</title>
+    <link rel='stylesheet' href='/styles/jquery.fullpage.min.css' />
+    <style>
+      h1, h2, h3, h4, h5, h6 {
+        font-weight: 400;
+        font-size: 100%;
+        color: #444;
+      }
+      h1 {
+        font-size: 6em;
+      }
+      h2 {
+        color: rgba(0,0,0,.5);
+      }
+      h2, p {
+        font-size: 2em;
+      }
+      .section {
+        text-align: center;
+      }
+      #infoMenu {
+        height: 20px;
+        position: fixed;
+        z-index: 70;
+        bottom: 0;
+        width: 100%;
+        text-align: right;
+        font-size: .9em;
+        padding: 8px 0
+      }
+      #infoMenu li a {
+        display: block;
+        margin: 0 22px 0 0;
+        color: #333
+      }
+      #infoMenu li a:hover {
+        text-decoration: underline
+      }
+      #infoMenu li {
+        display: inline-block;
+        position: relative
+      }
+      #infoMenu ul {
+        list-style: none;
+      }
+      #infoMenu ul {
+        margin: 0;
+        padding: 0;
+      }
+      #infoMenu a {
+        text-decoration: none
+      }
+    </style>
+  </head>
+  <body>
+    <div id='fullpage'>
+      <div class='section'>
+        <h1>LeanEngine</h1>
+        <h2>把你的代码部署在 LeanCloud 云端来执行，灵活应对各种需求</h2>
+      </div>
+      <div class='section'><p>支持定时任务，beforeSave 等 Hook 调用</p></div>
+      <div class='section'><p>支持在线编辑，本地部署，方便调试</p></div>
+      <div class='section'><p>提供成熟的 命令行工具，高效的部署、发布、回滚云引擎</p></div>
+    </div>
+    <div id="infoMenu">
+      <ul>
+        <li><a href="/app.html">应用页示例</a></li>
+      </ul>
+    </div>
+    <script src='/scripts/jquery.min.js'></script>
+    <script src='/scripts/jquery.fullpage.min.js'></script>
+    <script>
+      $(document).ready(function() {
+        $('#fullpage').fullpage({
+          sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+          scrollingSpeed: 500
+        });
+      });
+    </script>
+  </body>
+</html>

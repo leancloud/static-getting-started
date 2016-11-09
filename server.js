@@ -1,7 +1,7 @@
 var http = require('http');
 var static = require('node-static');
 
-var server = new static.Server('./www');
+var server = new static.Server('./public');
 
 http.createServer(function(request, response) {
   request.addListener('end', function() {
